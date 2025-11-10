@@ -119,7 +119,7 @@ tsne_plots/epoch_XX.png → used in publication figures
 
 After every epoch, embeddings are visualized via PCA → t-SNE:
 
-<p align="center"> <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_024.png" width="320"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_050.png" width="320"> </p>
+<p align="center"> <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_024.png" width="320"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_048.png" width="320"> </p>
 
 Left = poor separation (early), Right = clearer clustering.
 

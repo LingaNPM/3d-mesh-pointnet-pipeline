@@ -36,7 +36,6 @@ on the same dataset of **20 mechanical part classes** (custom industrial dataset
 
 This comparison appears in our paper submission.
 
----
 
 ## Repository Structure
 
@@ -53,3 +52,92 @@ pointnet-pipeline/
 ├── tsne_plots/ # Embedding visualizations saved per epoch
 │
 └── README.md # (this file)
+
+## Loss: Semi-Hard Triplet Loss
+
+Same as FaceNet:
+
+minimize:  max( d(a,p) − d(a,n) + margin , 0 )
+
+
+where
+
+a = anchor
+
+p = positive (same class)
+
+n = negative (different class)
+
+Semi-hard negative definition:
+
+d(a,p) < d(a,n) < margin + d(a,p)
+
+
+## Dataset Format
+
+Dataset structure:
+
+data/
+   ├── hinge/
+   │    ├── train/
+   │    │     ├── hinge_0001.obj
+   │    │     ├── hinge_0002.obj
+   │    └── test/
+   │          ├── hinge_0099.obj
+   ├── motor_mount/
+   │    ├── train/
+   └── ...
+
+
+The script automatically:
+
+Loads each .obj
+
+Samples a 2048-point cloud
+
+Normalizes to a unit sphere
+
+Saves as <name>_pc.npy under pointnet_data/
+
+
+## Training
+
+python train_pointnet.py
+
+
+Outputs include:
+
+pointnet_data/*.npy → cached point clouds
+
+checkpoints/pointnet_epoch_XX.pt
+
+tsne_plots/epoch_XX.png → used in publication figures
+
+
+## t-SNE Embedding Visualization
+
+After every epoch, embeddings are visualized via PCA → t-SNE:
+
+<p align="center"> <img src="tsne_plots/epoch_032.png" width="320"> &nbsp;&nbsp;&nbsp; <img src="tsne_plots/epoch_048.png" width="320"> </p>
+
+Left = poor separation (early), Right = clearer clustering.
+
+
+## Evaluation / Descriptor Export
+
+Use the trained checkpoint to export descriptors:
+
+python export_descriptors.py
+
+
+Outputs:
+
+descriptors/
+   ├── hinge_001.npy
+   ├── hinge_002.npy
+   └── ...
+
+
+Each file contains a 256-D L2-normalized vector.
+
+These can be fed into your Metal / CUDA search engine.

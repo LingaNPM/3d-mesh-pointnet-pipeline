@@ -21,8 +21,9 @@ This model produces **shape descriptors** that can be compared using cosine simi
 
 > This repo only handles **training + embedding generation** for point clouds.  
 > Our real-time similarity search engine (Metal GPU) lives in another repo.
+> Triaining was done in NVIDIA GPU using CUDA 13.0 version driver.
 
----
+
 
 ## Why this repository exists
 
@@ -118,7 +119,7 @@ tsne_plots/epoch_XX.png → used in publication figures
 
 After every epoch, embeddings are visualized via PCA → t-SNE:
 
-<p align="center"> <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_024.png" width="320"> &nbsp;&nbsp;&nbsp;</p>
+<p align="center"> <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_024.png" width="320"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_050.png" width="320"> </p>
 
 Left = poor separation (early), Right = clearer clustering.
 

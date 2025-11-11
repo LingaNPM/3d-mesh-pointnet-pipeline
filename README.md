@@ -153,7 +153,7 @@ Epoches 1, 24, 48 are shown here.
 
 After training PointNet on 20 mechanical component categories (MCB dataset — bearings, bushings, clamps, gears, hinges, etc.), we visualized the learned embeddings using t-SNE.
 
-<p align="center"> <img src="tsne_plots/tsne_epoch_48.png" width="600"> </p>
+<p align="center"> <img src="https://github.com/LingaNPM/pointnet-pipeline/blob/main/tsne_plots/tsne_epoch_048.png" width="600"> </p>
 
 Figure: t-SNE projection of 256-D PointNet embeddings (epoch 48).
 

@@ -24,6 +24,9 @@ class PointCloudDataset(Dataset):
             for f in os.listdir(split_dir):
                 obj_path = os.path.join(split_dir, f)
 
+                if 'partial' in f.lower() or not f.lower().endswith('.obj'):
+                    print(f"[INFO] Skipping non-OBJ or partial file: {obj_path}")
+                    continue  # skip partial or non-OBJ files
                 pc_path, _ = mesh_to_pointnet_input(obj_path, output_dir=output_dir)  # ALWAYS tuple
 
                 if pc_path is None:   # skip invalid files

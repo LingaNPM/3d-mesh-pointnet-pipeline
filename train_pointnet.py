@@ -31,10 +31,10 @@ def train_pointnet(data_dir: str, output_dir: str, epochs: int = 50):
     print(f"Training on device: {device}")
 
     train_ds = PointCloudDataset(data_dir, output_dir=output_dir, split="train")
-    test_ds = PointCloudDataset(data_dir, output_dir=output_dir, split="test")
+    # test_ds = PointCloudDataset(data_dir, output_dir=output_dir, split="test")
 
     train_dl = DataLoader(train_ds, batch_size=16, shuffle=True, num_workers=4)
-    test_dl = DataLoader(test_ds, batch_size=32, shuffle=False, num_workers=4)
+    # test_dl = DataLoader(test_ds, batch_size=32, shuffle=False, num_workers=4)
 
     model = PointNetEncoder(feature_dim=256).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
@@ -58,7 +58,7 @@ def train_pointnet(data_dir: str, output_dir: str, epochs: int = 50):
         print(f"Epoch {epoch}: loss={loss.item():.4f}")
 
         # Extract embeddings on test set
-        emb, lbls = extract_embeddings(model, test_dl, device)
+        emb, lbls = extract_embeddings(model, train_dl, device)
         print("embedding mean:", emb.mean().item(), "std:", emb.std().item())
 
         # Save + plot t-SNE

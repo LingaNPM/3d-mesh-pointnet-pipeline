@@ -170,9 +170,14 @@ Training with Triplet Loss (semi-hard negative mining) encourages separation bet
 
 PointNet works in two stages:
 
-Stage	What happens
-Point-wise MLP	Learns per-point geometric features (xyz → feature)
-Global Max Pooling	Aggregates them into a single descriptor vector
+| Stage              | What happens                                          |
+| ------------------ | ----------------------------------------------------- |
+| Point-wise MLP     | Learns per-point geometric features (`xyz → feature`) |
+| Global Max Pooling | Aggregates them into a single descriptor vector       |
+
+Because of max pooling, all point features are reduced into a single global feature, representing the overall silhouette of the object.
+
+This is why parts that look globally different cluster well.
 
 # Limitation observed
 

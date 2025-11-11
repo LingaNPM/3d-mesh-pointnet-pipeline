@@ -114,6 +114,9 @@ checkpoints/pointnet_epoch_XX.pt
 
 tsne_plots/epoch_XX.png → used in publication figures
 
+Our setup used NVIDIA GPU using CUDA 13.0 version driver.
+
+For 50 epoches, the training took around 7 mins.
 
 ## t-SNE Embedding Visualization
 

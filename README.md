@@ -76,6 +76,10 @@ d(a,p) < d(a,n) < margin + d(a,p)
 
 ## Dataset Format
 
+Origin of the dataset: [A Large-Scale Annotated Mechanical Components Benchmark](https://engineering.purdue.edu/cdesign/wp/a-large-scale-annotated-mechanical-components-benchmark-for-classification-and-retrieval-tasks-with-deep-neural-networks/)
+
+We aim to use real-world mechanical part models from the referenced dataset for training and evaluation. For benchmarking, we selected 20 distinct classes from this dataset to represent a diverse set of mechanical parts.
+
 Dataset structure:
 
 data/
